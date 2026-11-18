@@ -2,199 +2,1381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My First Website</title>
+<title>VELLORA | Luxury Fashion Boutique</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
-            color: #333;
-        }
+<style>
 
-        /* Header */
-        header {
-            background: #172554;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* =========================
+   GLOBAL STYLING
+========================= */
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
+:root {
+    --black: #080808;
+    --dark: #111111;
+    --card: #181818;
+    --gold: #c9a45c;
+    --light-gold: #e6cc91;
+    --white: #f5f1e9;
+    --gray: #a7a29a;
+}
 
-        nav a:hover {
-            color: #93c5fd;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: #dbeafe;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+}
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        /* Button */
-        button {
-            background: #2563eb;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
-        }
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
 
-        button:hover {
-            background: #1d4ed8;
-            transform: scale(1.05);
-        }
+/* =========================
+   ANNOUNCEMENT BAR
+========================= */
 
-        /* Sections */
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
+.announcement {
+    background: var(--gold);
+    color: #111;
+    text-align: center;
+    padding: 10px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
 
-        section h2 {
-            margin-bottom: 15px;
-        }
+/* =========================
+   HEADER
+========================= */
 
-        #message {
-            color: #166534;
-            font-weight: bold;
-            margin-top: 25px;
-        }
+header {
+    background: rgba(8,8,8,0.97);
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(201,164,92,0.2);
+}
 
-        /* Footer */
-        footer {
-            background: #172554;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gold);
+}
 
-        /* Mobile Responsive */
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+.logo span {
+    color: white;
+}
 
-            nav a {
-                margin: 0 8px;
-            }
+nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
 
-            .hero h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+nav a {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #ddd;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart-button {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 18px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.cart-button:hover {
+    background: var(--gold);
+    color: black;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    color: var(--gold);
+    border: none;
+    font-size: 27px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 80px 9%;
+    background:
+    linear-gradient(90deg,
+    rgba(0,0,0,0.92),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.15)),
+    url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85');
+
+    background-size: cover;
+    background-position: center 35%;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-label {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 8vw, 95px);
+    line-height: 0.95;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.hero p {
+    color: #d0cbc2;
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 35px;
+    max-width: 420px;
+}
+
+.gold-button {
+    display: inline-block;
+    background: var(--gold);
+    color: #111;
+    padding: 16px 32px;
+    border: 1px solid var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.gold-button:hover {
+    background: transparent;
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+/* =========================
+   COMMON SECTION STYLING
+========================= */
+
+section {
+    padding: 90px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading small {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.section-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.section-heading p {
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+    background: var(--dark);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.category-card {
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+    filter: brightness(0.7);
+}
+
+.category-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.5);
+}
+
+.category-info {
+    position: absolute;
+    bottom: 30px;
+    left: 25px;
+}
+
+.category-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.category-info a {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+}
+
+/* =========================
+   PRODUCT SECTION
+========================= */
+
+.products {
+    background: var(--black);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--card);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+}
+
+.product-image {
+    height: 330px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--gold);
+    color: black;
+    padding: 7px 12px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.product-details {
+    padding: 20px;
+}
+
+.product-details h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.product-details p {
+    color: var(--gray);
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.price {
+    color: var(--gold);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.add-cart {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.add-cart:hover {
+    background: var(--gold);
+    color: black;
+}
+
+/* =========================
+   PROMOTIONAL BANNER
+========================= */
+
+.promo {
+    text-align: center;
+    background:
+    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.8)),
+    url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.promo h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 55px;
+    margin: 20px 0;
+}
+
+.promo p {
+    color: #ccc;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about {
+    background: var(--dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.about img {
+    width: 100%;
+    height: 470px;
+    object-fit: cover;
+}
+
+.about-content small {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.about-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.about-content p {
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 2.2;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact {
+    text-align: center;
+    background: var(--black);
+}
+
+.contact p {
+    color: var(--gray);
+    font-size: 13px;
+    margin: 15px 0 25px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #050505;
+    border-top: 1px solid rgba(201,164,92,0.3);
+    padding: 55px 8% 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+}
+
+.footer-column p,
+.footer-column a {
+    display: block;
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 2.5;
+}
+
+.footer-column a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    border-top: 1px solid #292929;
+    padding-top: 20px;
+    text-align: center;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   CART MODAL
+========================= */
+
+.cart-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.cart-content {
+    background: #181818;
+    border: 1px solid var(--gold);
+    width: 100%;
+    max-width: 480px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 30px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.cart-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding: 15px 0;
+    gap: 15px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item p {
+    color: var(--gray);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.remove-item {
+    background: none;
+    color: #e88;
+    border: none;
+    font-size: 12px;
+}
+
+.cart-total {
+    color: var(--gold);
+    font-size: 20px;
+    margin: 25px 0;
+    text-align: right;
+}
+
+.empty-cart {
+    color: var(--gray);
+    text-align: center;
+    padding: 25px 0;
+}
+
+/* =========================
+   TOAST MESSAGE
+========================= */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: var(--gold);
+    color: black;
+    padding: 15px 22px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 3000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media(max-width: 1000px) {
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        gap: 15px;
+    }
+}
+
+@media(max-width: 700px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #111;
+        padding: 25px;
+        flex-direction: column;
+        border-bottom: 1px solid var(--gold);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .hero {
+        min-height: 550px;
+        padding: 60px 7%;
+        background-position: 60% center;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        height: 350px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 240px;
+    }
+
+    .product-details {
+        padding: 12px;
+    }
+
+    .product-details h3 {
+        font-size: 18px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about img {
+        height: 350px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .promo h2 {
+        font-size: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 38px;
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+
+    .cart-button {
+        padding: 8px 10px;
+        font-size: 10px;
+    }
+}
+
+@media(max-width: 380px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <h2>My Website</h2>
+<!-- ANNOUNCEMENT -->
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<div class="announcement">
+    ✦ FREE SHIPPING ON SELECT ORDERS | DISCOVER ELEGANCE ✦
+</div>
 
-    <!-- Home Section -->
-    <div class="hero" id="home">
+<!-- HEADER -->
 
-        <h1>Welcome to My Website!</h1>
+<header>
 
-        <p>
-            Built using HTML, CSS and JavaScript.
-        </p>
+    <a href="#home" class="logo">VEL<span>LORA</span></a>
 
-        <button onclick="showMessage()">
-            Get Started
+    <nav id="navbar">
+        <a href="#home">HOME</a>
+        <a href="#collections">COLLECTIONS</a>
+        <a href="#shop">SHOP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="header-actions">
+
+        <button class="cart-button" onclick="openCart()">
+            BAG (<span id="cart-count">0</span>)
         </button>
 
-        <p id="message"></p>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </button>
 
     </div>
 
-    <!-- About Section -->
-    <section id="about">
+</header>
 
-        <h2>About Us</h2>
+<!-- HERO SECTION -->
 
-        <p>
-            This is a simple website created using
-            HTML, CSS and JavaScript in a single file.
-        </p>
+<div class="hero" id="home">
 
-    </section>
+    <div class="hero-content">
 
-    <!-- Contact Section -->
-    <section id="contact">
+        <div class="hero-label">
+            THE NEW COLLECTION — 2026
+        </div>
 
-        <h2>Contact Us</h2>
-
-        <p>
-            Email: example@gmail.com
-        </p>
-
-    </section>
-
-    <!-- Footer -->
-    <footer>
+        <h1>
+            Elegance<br>
+            <span>Redefined.</span>
+        </h1>
 
         <p>
-            © 2026 My Website. All Rights Reserved.
+            Discover the beauty of timeless fashion.
+            Explore exclusive styles designed for
+            confidence, elegance and individuality.
         </p>
 
-    </footer>
+        <a href="#shop" class="gold-button">
+            EXPLORE COLLECTION
+        </a>
 
-    <!-- JavaScript -->
-    <script>
+    </div>
 
-        function showMessage() {
+</div>
 
-            // Display welcome message
-            document.getElementById("message").innerText =
-                "Welcome! Thanks for getting started with my website.";
+<!-- COLLECTIONS -->
 
-            // Smooth scroll to About section
-            document.getElementById("about").scrollIntoView({
-                behavior: "smooth"
-            });
+<section class="categories" id="collections">
+
+    <div class="section-heading">
+
+        <small>EXPLORE OUR WORLD</small>
+
+        <h2>Our Collections</h2>
+
+        <p>
+            Discover styles that define your personality.
+        </p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" alt="Women's fashion">
+
+            <div class="category-info">
+                <h3>Women's Fashion</h3>
+                <a href="#shop">EXPLORE NOW →</a>
+            </div>
+
+        </div>
+
+        <div class="category-card">
+
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80" alt="Men's fashion">
+
+            <div class="category-info">
+                <h3>Men's Fashion</h3>
+                <a href="#shop">EXPLORE NOW →</a>
+            </div>
+
+        </div>
+
+        <div class="category-card">
+
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="Fashion essentials">
+
+            <div class="category-info">
+                <h3>Style Essentials</h3>
+                <a href="#shop">EXPLORE NOW →</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products" id="shop">
+
+    <div class="section-heading">
+
+        <small>CURATED FOR YOU</small>
+
+        <h2>Featured Collection</h2>
+
+        <p>
+            Elevate your wardrobe with our latest arrivals.
+        </p>
+
+    </div>
+
+    <div class="product-grid">
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=80" alt="Elegant evening dress">
+
+                <span class="product-tag">BESTSELLER</span>
+
+            </div>
+
+            <div class="product-details">
+
+                <h3>Midnight Elegance</h3>
+
+                <p>Classic evening wear</p>
+
+                <div class="price">₹2,499</div>
+
+                <button class="add-cart" onclick="addToCart('Midnight Elegance',2499)">
+                    ADD TO BAG
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80" alt="Women's elegant dress">
+
+                <span class="product-tag">NEW ARRIVAL</span>
+
+            </div>
+
+            <div class="product-details">
+
+                <h3>Golden Grace</h3>
+
+                <p>Elegant occasion wear</p>
+
+                <div class="price">₹2,999</div>
+
+                <button class="add-cart" onclick="addToCart('Golden Grace',2999)">
+                    ADD TO BAG
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=700&q=80" alt="Premium fashion outfit">
+
+                <span class="product-tag">POPULAR</span>
+
+            </div>
+
+            <div class="product-details">
+
+                <h3>Royal Charm</h3>
+
+                <p>Premium designer style</p>
+
+                <div class="price">₹3,499</div>
+
+                <button class="add-cart" onclick="addToCart('Royal Charm',3499)">
+                    ADD TO BAG
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80" alt="Fashion collection">
+
+                <span class="product-tag">EXCLUSIVE</span>
+
+            </div>
+
+            <div class="product-details">
+
+                <h3>Urban Sophistication</h3>
+
+                <p>Modern everyday fashion</p>
+
+                <div class="price">₹1,999</div>
+
+                <button class="add-cart" onclick="addToCart('Urban Sophistication',1999)">
+                    ADD TO BAG
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROMOTIONAL BANNER -->
+
+<section class="promo">
+
+    <small style="color:#c9a45c; letter-spacing:4px;">
+        THE VELLORA EXPERIENCE
+    </small>
+
+    <h2>Style That Speaks.</h2>
+
+    <p>
+        Fashion is not just what you wear.
+        It's how you express yourself.
+    </p>
+
+    <a href="#shop" class="gold-button">
+        SHOP THE COLLECTION
+    </a>
+
+</section>
+
+<!-- ABOUT SECTION -->
+
+<section class="about" id="about">
+
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=85" alt="Vellora fashion boutique">
+
+    <div class="about-content">
+
+        <small>OUR STORY</small>
+
+        <h2>Where Fashion Meets Elegance.</h2>
+
+        <p>
+            Welcome to VELLORA, a fashion destination
+            created for those who appreciate elegance,
+            confidence and timeless style.
+        </p>
+
+        <p>
+            We believe that every outfit tells a story.
+            Our collections bring together modern trends
+            and sophisticated designs to help you express
+            your unique personality.
+        </p>
+
+        <a href="#shop" class="gold-button">
+            DISCOVER VELLORA
+        </a>
+
+    </div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section class="contact" id="contact">
+
+    <div class="section-heading">
+
+        <small>GET IN TOUCH</small>
+
+        <h2>We'd Love to Hear From You</h2>
+
+        <p>
+            Have questions about our collections?
+            Get in touch with us.
+        </p>
+
+        <a href="mailto:hello@vellora.com" class="gold-button">
+            CONTACT US
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-column">
+
+            <h3>VELLORA</h3>
+
+            <p>
+                Discover timeless elegance and modern
+                fashion. Dress beautifully. Feel confident.
+                Be unforgettable.
+            </p>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Quick Links</h3>
+
+            <a href="#home">Home</a>
+            <a href="#collections">Collections</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About Us</a>
+
+        </div>
+
+        <div class="footer-column">
+
+            <h3>Customer Care</h3>
+
+            <a href="#contact">Contact Us</a>
+            <a href="#contact">Shipping Information</a>
+            <a href="#contact">Returns & Exchanges</a>
+            <a href="#contact">Privacy Policy</a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 VELLORA. ALL RIGHTS RESERVED.
+
+    </div>
+
+</footer>
+
+<!-- SHOPPING CART -->
+
+<div class="cart-modal" id="cart-modal">
+
+    <div class="cart-content">
+
+        <div class="cart-header">
+
+            <h2>Your Shopping Bag</h2>
+
+            <button class="close-cart" onclick="closeCart()">
+                &times;
+            </button>
+
+        </div>
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Your shopping bag is empty.
+            </p>
+
+        </div>
+
+        <div class="cart-total">
+            Total: ₹<span id="cart-total">0</span>
+        </div>
+
+        <button class="gold-button" style="width:100%"
+                onclick="checkout()">
+            PROCEED TO CHECKOUT
+        </button>
+
+    </div>
+
+</div>
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// =========================
+// MOBILE MENU
+// =========================
+
+function toggleMenu() {
+
+    document.getElementById("navbar")
+        .classList.toggle("active");
+
+}
+
+document.querySelectorAll("#navbar a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document.getElementById("navbar")
+            .classList.remove("active");
+
+    });
+
+});
+
+// =========================
+// SHOPPING CART
+// =========================
+
+let cart = [];
+
+function addToCart(name, price) {
+
+    const existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+
+        existingItem.quantity++;
+
+    } else {
+
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+
+    }
+
+    updateCart();
+
+    showToast(name + " added to your bag!");
+
+}
+
+// =========================
+// UPDATE CART
+// =========================
+
+function updateCart() {
+
+    const cartItems = document.getElementById("cart-items");
+
+    const cartCount = document.getElementById("cart-count");
+
+    const cartTotal = document.getElementById("cart-total");
+
+    let totalItems = 0;
+    let totalPrice = 0;
+
+    cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML =
+            '<p class="empty-cart">Your shopping bag is empty.</p>';
+
+    }
+
+    cart.forEach((item, index) => {
+
+        totalItems += item.quantity;
+
+        totalPrice += item.price * item.quantity;
+
+        cartItems.innerHTML += `
+
+            <div class="cart-item">
+
+                <div class="cart-item-info">
+
+                    <strong>${item.name}</strong>
+
+                    <p>
+                        ₹${item.price.toLocaleString("en-IN")}
+                        × ${item.quantity}
+                    </p>
+
+                </div>
+
+                <button class="remove-item"
+                    onclick="removeItem(${index})">
+
+                    REMOVE
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+    cartCount.innerText = totalItems;
+
+    cartTotal.innerText = totalPrice.toLocaleString("en-IN");
+
+}
+
+// =========================
+// REMOVE ITEM
+// =========================
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+    showToast("Item removed from your bag.");
+
+}
+
+// =========================
+// OPEN AND CLOSE CART
+// =========================
+
+function openCart() {
+
+    document.getElementById("cart-modal")
+        .style.display = "flex";
+
+}
+
+function closeCart() {
+
+    document.getElementById("cart-modal")
+        .style.display = "none";
+
+}
+
+document.getElementById("cart-modal")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+
+            closeCart();
 
         }
 
-    </script>
+    });
+
+// =========================
+// CHECKOUT
+// =========================
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        showToast("Your shopping bag is empty!");
+
+        return;
+
+    }
+
+    showToast("Shopping cart ready! Checkout integration is coming soon.");
+
+}
+
+// =========================
+// TOAST NOTIFICATION
+// =========================
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2500);
+
+}
+
+</script>
 
 </body>
 </html>
